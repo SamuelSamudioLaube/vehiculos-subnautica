@@ -1,0 +1,561 @@
+/* =====================================================================
+   HOJA DE ESTILOS - Vehículos de Subnautica
+   Este archivo es la "decoración" de la página: colores, tamaños,
+   letras y ubicación de cada cosa.
+   ===================================================================== */
+
+
+/* MACHETE: PALETA DE COLORES.
+   Aquí se guardan los colores con un nombre. Si cambias un color en
+   esta lista, cambia en toda la página al mismo tiempo. */
+:root {
+    --azul-profundo: #041826;   /* fondo general */
+    --azul-oscuro: #072a40;     /* fondo de las secciones oscuras */
+    --azul-tarjeta: #0c3854;    /* fondo de tarjetas y bloques */
+    --celeste: #35d6e6;         /* color de los detalles (títulos, botones) */
+    --naranja: #ffa53d;         /* color de resalte */
+    --texto: #e6f4f8;           /* color del texto normal */
+    --texto-suave: #9fc3d1;     /* color del texto secundario */
+}
+
+
+/* MACHETE: REGLAS GENERALES.
+   Se aplican a toda la página. "box-sizing" hace que los tamaños
+   sean más fáciles de calcular. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* MACHETE: "scroll-behavior: smooth" hace que al tocar el menú la página
+   baje despacio. "scroll-padding-top" evita que el menú tape los títulos. */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+/* MACHETE: Aquí se cambia el color de fondo, el color y el tipo de letra
+   de toda la página. */
+body {
+    background-color: var(--azul-profundo);
+    color: var(--texto);
+    font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* MACHETE: Hace que ninguna imagen se salga de su lugar. */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ---------------------------------------------------------------------
+   MENÚ DE NAVEGACIÓN
+   --------------------------------------------------------------------- */
+
+/* MACHETE: La barra del menú. "position: sticky" la deja pegada arriba
+   mientras se baja por la página. "display: flex" pone el logo a un lado
+   y los enlaces al otro. */
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding: 12px 5%;
+    background-color: rgba(4, 24, 38, 0.95);
+    border-bottom: 2px solid var(--celeste);
+}
+
+/* MACHETE: El nombre "SUBNAUTICA" a la izquierda del menú. */
+.menu-logo {
+    color: var(--celeste);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-decoration: none;
+}
+
+/* MACHETE: La lista de enlaces. "list-style: none" saca los puntitos. */
+.menu-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    list-style: none;
+}
+
+/* MACHETE: Cómo se ve cada enlace del menú. */
+.menu-lista a {
+    display: block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: var(--texto);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* MACHETE: ":hover" es lo que pasa cuando el mouse pasa por encima. */
+.menu-lista a:hover {
+    background-color: var(--celeste);
+    color: var(--azul-profundo);
+}
+
+
+/* ---------------------------------------------------------------------
+   ENCABEZADO PRINCIPAL (PORTADA)
+   --------------------------------------------------------------------- */
+
+/* MACHETE: La portada. El fondo usa la foto del Seamoth con una capa azul
+   encima (linear-gradient) para que el texto se lea bien.
+   Para cambiar la foto de fondo, cambia el nombre del archivo en url(). */
+.portada {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 60px 6%;
+    text-align: center;
+    background-image:
+        linear-gradient(rgba(4, 24, 38, 0.55), rgba(4, 24, 38, 0.95)),
+        url("../img/seamoth.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* MACHETE: El textito chico que está arriba del título. */
+.portada-etiqueta {
+    color: var(--naranja);
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+/* MACHETE: Aquí se modifica el tamaño y el color del título principal.
+   "clamp" hace que el título sea más chico en el celular y más grande
+   en la computadora. */
+.portada h1 {
+    font-size: clamp(34px, 7vw, 68px);
+    line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(53, 214, 230, 0.6);
+}
+
+/* MACHETE: La frase que está debajo del título. */
+.portada-texto {
+    max-width: 620px;
+    font-size: 19px;
+}
+
+/* MACHETE: El botón de la portada. */
+.boton {
+    margin-top: 10px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background-color: var(--celeste);
+    color: var(--azul-profundo);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* MACHETE: Al pasar el mouse, el botón cambia de color y sube un poquito. */
+.boton:hover {
+    background-color: var(--naranja);
+    transform: translateY(-3px);
+}
+
+
+/* ---------------------------------------------------------------------
+   SECCIONES
+   --------------------------------------------------------------------- */
+
+/* MACHETE: Espacio que tiene cada sección por dentro. */
+.seccion {
+    padding: 70px 6%;
+}
+
+/* MACHETE: Algunas secciones tienen un fondo distinto para diferenciarse. */
+.seccion-oscura {
+    background-color: var(--azul-oscuro);
+}
+
+/* MACHETE: Títulos de cada sección (Galería, Los vehículos, etc.). */
+.seccion h2 {
+    margin-bottom: 36px;
+    text-align: center;
+    font-size: clamp(26px, 4vw, 38px);
+    color: var(--celeste);
+}
+
+/* MACHETE: La rayita naranja que aparece debajo de cada título. */
+.seccion h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 2px;
+    background-color: var(--naranja);
+}
+
+/* MACHETE: Párrafo centrado y angosto para que sea cómodo de leer. */
+.texto-centrado {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------------------
+   CARRUSEL DE IMÁGENES (hecho solo con CSS)
+   --------------------------------------------------------------------- */
+
+/* MACHETE: El ancho máximo del carrusel. Cambia 720px para agrandarlo
+   o achicarlo. */
+.carrusel {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* MACHETE: Esconde los 3 botones redondos (input radio). Siguen
+   funcionando, pero no se ven. */
+.carrusel input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* MACHETE: La ventana. "overflow: hidden" esconde las fotos que quedan
+   afuera, así se ve una sola. */
+.carrusel-ventana {
+    overflow: hidden;
+    border: 2px solid var(--celeste);
+    border-radius: 16px;
+}
+
+/* MACHETE: La pista es 3 veces más ancha que la ventana (300%) porque
+   tiene 3 fotos. "transition" hace que se deslice suave. */
+.carrusel-pista {
+    display: flex;
+    width: 300%;
+    transition: transform 0.6s ease;
+}
+
+/* MACHETE: Cada foto ocupa un tercio de la pista. */
+.carrusel-foto {
+    position: relative;
+    width: 33.3333%;
+}
+
+/* MACHETE: Tamaño de las fotos del carrusel. "object-fit: cover" recorta
+   la foto para que llene el espacio sin deformarse. */
+.carrusel-foto img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+/* MACHETE: El cartelito con el nombre que aparece sobre cada foto. */
+.carrusel-foto figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 16px 14px;
+    text-align: center;
+    font-weight: bold;
+    background-image: linear-gradient(transparent, rgba(4, 24, 38, 0.9));
+}
+
+/* MACHETE: Las flechas para pasar de foto. */
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(4, 24, 38, 0.7);
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.flecha:hover {
+    background-color: var(--celeste);
+    color: var(--azul-profundo);
+}
+
+.flecha-izquierda { left: 12px; }
+.flecha-derecha { right: 12px; }
+
+/* MACHETE: ESTA ES LA PARTE QUE HACE FUNCIONAR EL CARRUSEL.
+   Si está marcado el botón 1, la pista no se mueve.
+   Si está marcado el 2, la pista se corre una foto a la izquierda.
+   Si está marcado el 3, se corre dos fotos. */
+#foto1:checked ~ .carrusel-ventana .carrusel-pista { transform: translateX(0); }
+#foto2:checked ~ .carrusel-ventana .carrusel-pista { transform: translateX(-33.3333%); }
+#foto3:checked ~ .carrusel-ventana .carrusel-pista { transform: translateX(-66.6666%); }
+
+/* MACHETE: Los puntitos que están debajo del carrusel. */
+.carrusel-puntos {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.carrusel-puntos label {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--celeste);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* MACHETE: Pinta el puntito de la foto que se está viendo. */
+#foto1:checked ~ .carrusel-puntos label:nth-child(1),
+#foto2:checked ~ .carrusel-puntos label:nth-child(2),
+#foto3:checked ~ .carrusel-puntos label:nth-child(3) {
+    background-color: var(--celeste);
+}
+
+
+/* ---------------------------------------------------------------------
+   TARJETAS DE LOS VEHÍCULOS
+   --------------------------------------------------------------------- */
+
+/* MACHETE: Acomoda las tarjetas en columnas. "auto-fit" pone solo tantas
+   columnas como entren en la pantalla: 3 en computadora, 2 en tablet y
+   1 en celular. */
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* MACHETE: El aspecto de cada tarjeta: fondo, borde y puntas redondeadas. */
+.tarjeta {
+    overflow: hidden;
+    border: 1px solid rgba(53, 214, 230, 0.3);
+    border-radius: 16px;
+    background-color: var(--azul-tarjeta);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* MACHETE: Al pasar el mouse, la tarjeta sube y brilla. */
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(53, 214, 230, 0.25);
+}
+
+/* MACHETE: Tamaño de la imagen de cada tarjeta. */
+.tarjeta img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+/* MACHETE: Espacio interior del texto de la tarjeta. */
+.tarjeta-cuerpo {
+    padding: 22px;
+}
+
+.tarjeta h3 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* MACHETE: El textito naranja que dice qué tipo de vehículo es. */
+.tarjeta-tipo {
+    margin-bottom: 12px;
+    color: var(--naranja);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* MACHETE: La lista de datos de cada tarjeta. */
+.tarjeta ul {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(53, 214, 230, 0.3);
+    list-style: none;
+    font-size: 15px;
+    color: var(--texto-suave);
+}
+
+.tarjeta li {
+    margin-bottom: 4px;
+}
+
+.tarjeta strong {
+    color: var(--celeste);
+}
+
+
+/* ---------------------------------------------------------------------
+   TABLA DE COMPARACIÓN
+   --------------------------------------------------------------------- */
+
+/* MACHETE: Si la tabla no entra en la pantalla del celular, este
+   contenedor deja deslizarla hacia los costados. */
+.tabla-contenedor {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+/* MACHETE: La tabla ocupa todo el ancho y las celdas quedan pegadas. */
+.tabla {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    background-color: var(--azul-tarjeta);
+}
+
+/* MACHETE: Espacio y borde de todas las celdas. */
+.tabla th,
+.tabla td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(53, 214, 230, 0.2);
+    text-align: left;
+}
+
+/* MACHETE: La primera fila (los nombres de los vehículos). */
+.tabla thead th {
+    background-color: var(--celeste);
+    color: var(--azul-profundo);
+}
+
+/* MACHETE: La primera columna (el nombre de cada dato). */
+.tabla tbody th {
+    color: var(--celeste);
+}
+
+
+/* ---------------------------------------------------------------------
+   BLOQUES DE CURIOSIDADES
+   --------------------------------------------------------------------- */
+
+/* MACHETE: Acomoda los bloques igual que las tarjetas: se reordenan
+   solos según el ancho de la pantalla. */
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* MACHETE: Cada bloque tiene una raya naranja a la izquierda. */
+.bloque {
+    padding: 24px;
+    border-left: 4px solid var(--naranja);
+    border-radius: 8px;
+    background-color: var(--azul-tarjeta);
+}
+
+/* MACHETE: El número grande de cada bloque. */
+.bloque-numero {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--celeste);
+}
+
+.bloque h3 {
+    margin: 6px 0 10px;
+    color: #ffffff;
+}
+
+.bloque p {
+    font-size: 15px;
+    color: var(--texto-suave);
+}
+
+
+/* ---------------------------------------------------------------------
+   PIE DE PÁGINA
+   --------------------------------------------------------------------- */
+
+/* MACHETE: El pie de página: fondo más oscuro y texto centrado. */
+.pie {
+    padding: 36px 6%;
+    border-top: 2px solid var(--celeste);
+    background-color: #020d15;
+    text-align: center;
+}
+
+.pie p {
+    margin-bottom: 6px;
+}
+
+/* MACHETE: La aclaración chiquita sobre de quién son las imágenes. */
+.pie-nota {
+    font-size: 13px;
+    color: var(--texto-suave);
+}
+
+.pie a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--celeste);
+}
+
+
+/* ---------------------------------------------------------------------
+   DISEÑO ADAPTABLE (RESPONSIVE)
+   --------------------------------------------------------------------- */
+
+/* MACHETE: Estas reglas solo se aplican cuando la pantalla mide 600px
+   o menos (celulares). Achican los espacios y las fotos, y centran
+   el menú. */
+@media (max-width: 600px) {
+    .menu {
+        justify-content: center;
+    }
+
+    .menu-lista {
+        justify-content: center;
+    }
+
+    .menu-lista a {
+        padding: 4px 9px;
+        font-size: 15px;
+    }
+
+    html {
+        scroll-padding-top: 120px;
+    }
+
+    .seccion {
+        padding: 50px 5%;
+    }
+
+    .carrusel-foto img {
+        height: 250px;
+    }
+
+    .flecha {
+        width: 36px;
+        height: 36px;
+    }
+}

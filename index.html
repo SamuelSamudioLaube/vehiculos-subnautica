@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!-- MACHETE: La línea de arriba le avisa al navegador que este archivo es HTML5 -->
+<html lang="es">
+
+<!-- MACHETE: El <head> guarda información que NO se ve en la página:
+     el título de la pestaña, el idioma de las letras y la conexión con el CSS -->
+<head>
+    <meta charset="UTF-8">
+    <!-- MACHETE: Esta línea hace que la página se adapte al ancho del celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehículos de Subnautica</title>
+    <!-- MACHETE: Aquí se conecta el HTML con la hoja de estilos (la decoración) -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<!-- MACHETE: Todo lo que está dentro de <body> es lo que SÍ se ve en la página -->
+<body>
+
+    <!-- MACHETE: MENÚ DE NAVEGACIÓN.
+         Cada enlace lleva a una sección de la página.
+         El href="#nombre" tiene que ser igual al id="nombre" de la sección -->
+    <nav class="menu">
+        <a class="menu-logo" href="#inicio">SUBNAUTICA</a>
+        <ul class="menu-lista">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#vehiculos">Vehículos</a></li>
+            <li><a href="#comparacion">Comparación</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+        </ul>
+    </nav>
+
+    <!-- MACHETE: ENCABEZADO PRINCIPAL (portada).
+         Tiene el título grande, una frase y un botón que baja a los vehículos -->
+    <header class="portada" id="inicio">
+        <p class="portada-etiqueta">Planeta 4546B</p>
+        <h1>Vehículos de Subnautica</h1>
+        <p class="portada-texto">
+            Tres máquinas para explorar un océano alienígena: desde las aguas
+            poco profundas hasta las zonas más oscuras del planeta.
+        </p>
+        <a class="boton" href="#vehiculos">Conocer los vehículos</a>
+    </header>
+
+    <!-- MACHETE: <main> agrupa todo el contenido principal de la página -->
+    <main>
+
+        <!-- MACHETE: SECCIÓN INTRODUCCIÓN.
+             Un texto corto que explica de qué trata el juego -->
+        <section class="seccion">
+            <h2>¿Qué es Subnautica?</h2>
+            <p class="texto-centrado">
+                Subnautica es un videojuego de supervivencia y exploración creado por
+                Unknown Worlds Entertainment. El jugador se estrella con su nave en un
+                planeta cubierto casi por completo de agua y tiene que sobrevivir,
+                construir herramientas y descubrir qué pasó. Para llegar a las zonas
+                profundas hay que fabricar vehículos, y cada uno sirve para algo distinto.
+            </p>
+        </section>
+
+        <!-- MACHETE: SECCIÓN GALERÍA (carrusel de imágenes hecho solo con CSS).
+             Funciona con 3 botones redondos invisibles (input radio).
+             Según cuál esté marcado, el CSS mueve la tira de fotos -->
+        <section class="seccion seccion-oscura" id="galeria">
+            <h2>Galería</h2>
+
+            <div class="carrusel">
+
+                <!-- MACHETE: Estos 3 "input" son los interruptores del carrusel.
+                     El que tiene la palabra "checked" es la foto que aparece primero -->
+                <input type="radio" name="carrusel" id="foto1" checked>
+                <input type="radio" name="carrusel" id="foto2">
+                <input type="radio" name="carrusel" id="foto3">
+
+                <!-- MACHETE: La "ventana" muestra una sola foto y esconde las otras.
+                     La "pista" es la tira larga con las 3 fotos, una al lado de la otra -->
+                <div class="carrusel-ventana">
+                    <div class="carrusel-pista">
+
+                        <!-- MACHETE: FOTO 1. Las flechas son etiquetas <label>:
+                             el for="foto2" significa "al hacer clic, marcar la foto 2" -->
+                        <figure class="carrusel-foto">
+                            <img src="img/seamoth.jpg" alt="Seamoth navegando cerca de una criatura marina">
+                            <figcaption>Seamoth: rápido y ágil</figcaption>
+                            <label class="flecha flecha-izquierda" for="foto3" title="Foto anterior">&#10094;</label>
+                            <label class="flecha flecha-derecha" for="foto2" title="Foto siguiente">&#10095;</label>
+                        </figure>
+
+                        <!-- MACHETE: FOTO 2 -->
+                        <figure class="carrusel-foto">
+                            <img src="img/prawn.jpg" alt="Traje Prawn parado sobre una roca en el fondo del mar">
+                            <figcaption>Traje Prawn: camina por el fondo</figcaption>
+                            <label class="flecha flecha-izquierda" for="foto1" title="Foto anterior">&#10094;</label>
+                            <label class="flecha flecha-derecha" for="foto3" title="Foto siguiente">&#10095;</label>
+                        </figure>
+
+                        <!-- MACHETE: FOTO 3 -->
+                        <figure class="carrusel-foto">
+                            <img src="img/cyclops.jpg" alt="Submarino Cyclops visto desde arriba">
+                            <figcaption>Cyclops: una base que se mueve</figcaption>
+                            <label class="flecha flecha-izquierda" for="foto2" title="Foto anterior">&#10094;</label>
+                            <label class="flecha flecha-derecha" for="foto1" title="Foto siguiente">&#10095;</label>
+                        </figure>
+
+                    </div>
+                </div>
+
+                <!-- MACHETE: Los puntitos de abajo. Cada uno lleva a una foto -->
+                <div class="carrusel-puntos">
+                    <label for="foto1" title="Ver foto 1"></label>
+                    <label for="foto2" title="Ver foto 2"></label>
+                    <label for="foto3" title="Ver foto 3"></label>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MACHETE: SECCIÓN VEHÍCULOS.
+             Tiene 3 tarjetas. Cada tarjeta es un <article> con imagen, título,
+             descripción y una lista de datos -->
+        <section class="seccion" id="vehiculos">
+            <h2>Los vehículos</h2>
+
+            <div class="tarjetas">
+
+                <!-- MACHETE: TARJETA 1 - Seamoth -->
+                <article class="tarjeta">
+                    <img src="img/seamoth.jpg" alt="Seamoth">
+                    <div class="tarjeta-cuerpo">
+                        <h3>Seamoth</h3>
+                        <p class="tarjeta-tipo">Submarino personal</p>
+                        <p>
+                            Es el primer vehículo que suele construir el jugador. Es pequeño,
+                            veloz y fácil de manejar, ideal para recorrer distancias largas
+                            y escapar de los depredadores.
+                        </p>
+                        <ul>
+                            <li><strong>Tripulación:</strong> 1 persona</li>
+                            <li><strong>Profundidad:</strong> 200 m (hasta 900 m con mejoras)</li>
+                            <li><strong>Energía:</strong> 1 célula de energía</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- MACHETE: TARJETA 2 - Traje Prawn -->
+                <article class="tarjeta">
+                    <img src="img/prawn.jpg" alt="Traje Prawn">
+                    <div class="tarjeta-cuerpo">
+                        <h3>Traje Prawn</h3>
+                        <p class="tarjeta-tipo">Traje mecánico</p>
+                        <p>
+                            No nada: camina y salta por el fondo del mar. Sus brazos se pueden
+                            cambiar por un taladro, un gancho o un cañón, y por eso es el mejor
+                            vehículo para conseguir minerales.
+                        </p>
+                        <ul>
+                            <li><strong>Tripulación:</strong> 1 persona</li>
+                            <li><strong>Profundidad:</strong> 900 m (hasta 1700 m con mejoras)</li>
+                            <li><strong>Energía:</strong> 2 células de energía</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- MACHETE: TARJETA 3 - Cyclops -->
+                <article class="tarjeta">
+                    <img src="img/cyclops.jpg" alt="Cyclops">
+                    <div class="tarjeta-cuerpo">
+                        <h3>Cyclops</h3>
+                        <p class="tarjeta-tipo">Submarino grande</p>
+                        <p>
+                            Mide 54 metros de largo y funciona como una base que se mueve.
+                            Adentro se pueden poner armarios y fabricadores, y además puede
+                            llevar guardado un Seamoth o un Traje Prawn.
+                        </p>
+                        <ul>
+                            <li><strong>Tripulación:</strong> 1 piloto</li>
+                            <li><strong>Profundidad:</strong> 500 m (hasta 1700 m con mejoras)</li>
+                            <li><strong>Energía:</strong> 6 células de energía</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- MACHETE: SECCIÓN COMPARACIÓN.
+             Una tabla: <tr> es una fila, <th> una celda de título y <td> una celda común.
+             El <div> de afuera permite deslizar la tabla con el dedo en el celular -->
+        <section class="seccion seccion-oscura" id="comparacion">
+            <h2>Comparación</h2>
+
+            <div class="tabla-contenedor">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Dato</th>
+                            <th>Seamoth</th>
+                            <th>Traje Prawn</th>
+                            <th>Cyclops</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Tipo</th>
+                            <td>Submarino personal</td>
+                            <td>Traje mecánico</td>
+                            <td>Submarino grande</td>
+                        </tr>
+                        <tr>
+                            <th>Profundidad inicial</th>
+                            <td>200 m</td>
+                            <td>900 m</td>
+                            <td>500 m</td>
+                        </tr>
+                        <tr>
+                            <th>Profundidad máxima</th>
+                            <td>900 m</td>
+                            <td>1700 m</td>
+                            <td>1700 m</td>
+                        </tr>
+                        <tr>
+                            <th>Células de energía</th>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <th>Sirve para</th>
+                            <td>Explorar rápido</td>
+                            <td>Minar y bajar a lo más profundo</td>
+                            <td>Viajes largos con todo el equipo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- MACHETE: SECCIÓN CURIOSIDADES.
+             Bloques de información cortos, cada uno con un número, un título y un texto -->
+        <section class="seccion" id="curiosidades">
+            <h2>Curiosidades</h2>
+
+            <div class="bloques">
+
+                <div class="bloque">
+                    <span class="bloque-numero">01</span>
+                    <h3>¿Dónde se construyen?</h3>
+                    <p>
+                        Los tres se fabrican con la Bahía de Vehículos Móvil, una plataforma
+                        que flota en la superficie del agua. Antes hay que escanear
+                        fragmentos de cada vehículo para conseguir su plano.
+                    </p>
+                </div>
+
+                <div class="bloque">
+                    <span class="bloque-numero">02</span>
+                    <h3>PRAWN es una sigla</h3>
+                    <p>
+                        El nombre viene del inglés «Pressure Re-Active Waterproof Nano Suit»,
+                        que significa algo así como «nanotraje impermeable que reacciona
+                        a la presión».
+                    </p>
+                </div>
+
+                <div class="bloque">
+                    <span class="bloque-numero">03</span>
+                    <h3>Modo silencioso</h3>
+                    <p>
+                        El Cyclops puede activar una marcha silenciosa para que las
+                        criaturas grandes no lo escuchen. Gasta más energía, así que
+                        conviene usarla solo cuando hay peligro.
+                    </p>
+                </div>
+
+                <div class="bloque">
+                    <span class="bloque-numero">04</span>
+                    <h3>Todos se mejoran</h3>
+                    <p>
+                        Cada vehículo acepta módulos de mejora: más profundidad, más
+                        espacio para guardar cosas, defensa eléctrica o recarga solar,
+                        entre otros.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MACHETE: PIE DE PÁGINA.
+         Aquí van los datos del trabajo. Cambia los textos entre corchetes por los tuyos -->
+    <footer class="pie">
+        <p><strong>Vehículos de Subnautica</strong> · Trabajo práctico de tercer año</p>
+        <p>Realizado por [Nombre del estudiante] · [Materia] · [Año]</p>
+        <p class="pie-nota">
+            Subnautica y sus imágenes pertenecen a Unknown Worlds Entertainment.
+            Página hecha con fines escolares.
+        </p>
+        <a href="#inicio">Volver arriba</a>
+    </footer>
+
+</body>
+</html>
